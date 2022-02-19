@@ -12,11 +12,13 @@ public class CharMove : MonoBehaviour
 	public float speed = 4.0f;
 	public float rotSpeed = 300.0f;
 	public float jumpPower = 8.0f;
+	AudioSource audio;
 
 	void Start()
 	{
 		animator = GetComponent<Animator>();
 		cc = GetComponent<CharacterController>();
+		audio = GetComponent<AudioSource>();
 	}
 
 
@@ -52,5 +54,10 @@ public class CharMove : MonoBehaviour
 		}
 
 	}
+	public void OnJumpStart()
+    {
+		dir.y = jumpPower;
+		audio.Play();
+    }
 
 }
